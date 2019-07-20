@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "title": "News artical 1",
+        "feed": "First, open this Starter Code in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial."
+    },
+    {
+        "id":2,
+        "title": "News article 2",
+        "feed": "First, open this Starter Code in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial."
+    },
+    {
+        "id":3,
+        "title": "News artical 3",
+        "feed": "First, open this Starter Code in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial."
+    },
+    {
+        "id":4,
+        "title": "News artical 4",
+        "feed": "First, open this Starter Code in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial."
+    }
+]
