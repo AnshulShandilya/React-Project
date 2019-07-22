@@ -1,42 +1,39 @@
-import React, {Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Route, Link, Switch, NavLink} from 'react-router-dom';
 
-// COMPONENT HEADER
-import Header from './components/header'
-//Importing JSON
-import JSON from './db.json'
-// Importing News list
-import NewsList from './components/newslist'
+//COMPONENTS
+import Posts from './components/posts';
+import Profile from './components/profile'
+import PostItem from './components/PostItem';
+import NotFound from './components/NotFound';
 
 class App extends Component{
-    constructor(props){
-        super(props);
-
-        this.state={
-            news:JSON,
-            filtered: JSON
-        }
-    }
-
-    filtersearch(keywords){
-        console.log(keywords);
-        console.log(this.state.news);
-        let filtered = this.state.news.filter((item)=>{
-            return item.title.indexOf(keywords) > -1;
-        })
-        console.log(filtered);
-        console.log();
-        this.setState({filtered});
-    }
-
     render(){
         return(
             <div>
-                <Header filterS={keywords=>this.filtersearch(keywords)}/>
-                <NewsList news={this.state.filtered}/>
+            Home
             </div>
-        )
+        ) 
+
     }
 }
 
-ReactDOM.render(<App/>,document.querySelector('#root'));
+ReactDOM.render(
+<BrowserRouter>
+    <div>
+        <header>
+            <NavLink to="/" activeStyle={{color:'yellow'}} activeClassName='Selected'>Home</NavLink><br/>
+            <NavLink to="/profile">Profile</NavLink><br/>
+            <NavLink to="/posts">Posts</NavLink>
+        </header>
+        <Switch>
+        <Route path="/Posts/:id" component={PostItem}></Route>  
+        <Route path="/profile" component={Profile}></Route>
+        <Route path="/posts" component={Posts}></Route>
+        <Route path="/" component={App}></Route>
+        <Route path="*" component={NotFound}></Route>
+        </Switch>
+    </div>
+</BrowserRouter>
+,document.querySelector('#root'))
